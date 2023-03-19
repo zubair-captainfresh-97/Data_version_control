@@ -1,0 +1,72 @@
+schema: '2.0'
+stages:
+  tfrecords:
+    cmd: papermill notebooks/albumentations_and_patchify-v1-sentinel.ipynb notebook_output/albumentations_and_patchify-v1-sentinel.ipynb
+    deps:
+    - path: Smaller_pond_sentinel_data_v1/Images/
+      md5: b656bd5787bade1753ac1eca1ac39e94.dir
+      size: 1153458432
+      nfiles: 24
+    - path: Smaller_pond_sentinel_data_v1/Masks/
+      md5: efacf343d917c34e9556bac56137e12d.dir
+      size: 312554862
+      nfiles: 24
+    - path: notebooks/albumentations_and_patchify-v1-sentinel.ipynb
+      md5: b94d4621a805535d05a9d3ae5bb2eff4
+      size: 60168
+    params:
+      params.yaml:
+        tfrecords_creation.Image_patch_size:
+        - 256
+        - 256
+        - 3
+        tfrecords_creation.Mask_patch_size:
+        - 256
+        - 256
+    outs:
+    - path: tfrecords/
+      md5: fe3e2fa86740249789e2e9d55d98909f.dir
+      size: 7399210896
+      nfiles: 15
+  training:
+    cmd: papermill notebooks/deeplabv3plus_squeeze_excitation.ipynb notebook_output/deeplabv3plus_squeeze_excitation.ipynb
+    deps:
+    - path: loss.py
+      md5: d6cb8a1b8b32984dffa550f6174151b7
+      size: 1437
+    - path: notebooks/deeplabv3plus_squeeze_excitation.ipynb
+      md5: 64a464e80ea27ef9b0063f7abffd6eda
+      size: 23943
+    - path: tfrecords/
+      md5: fe3e2fa86740249789e2e9d55d98909f.dir
+      size: 7399210896
+      nfiles: 15
+    params:
+      params.yaml:
+        model_params.Batch_size: 16
+        model_params.Epochs: 3
+        model_params.Image_patch_size:
+        - 256
+        - 256
+        - 3
+        model_params.Learning_rate: 0.0001
+        model_params.Mask_patch_size:
+        - 256
+        - 256
+        model_params.Number_of_classes: 2
+        model_params.Optimizer: adamax
+    outs:
+    - path: confusion_matrix.png
+      md5: e9566f18d2c70568a0980f2394585290
+      size: 9745
+    - path: evaluation/metrics.json
+      md5: e715001d89be7a11262ad3f6475807d9
+      size: 415
+    - path: evaluation/plots
+      md5: b012c66ed10fcdc86ee950f8a8d4f7c2.dir
+      size: 671
+      nfiles: 9
+    - path: model_checkpoint/
+      md5: 3ed5c04f06ac494687e3083a4e461f16.dir
+      size: 158106464
+      nfiles: 1
