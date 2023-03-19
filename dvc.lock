@@ -44,7 +44,7 @@ stages:
     params:
       params.yaml:
         model_params.Batch_size: 16
-        model_params.Epochs: 3
+        model_params.Epochs: 10
         model_params.Image_patch_size:
         - 256
         - 256
@@ -57,16 +57,16 @@ stages:
         model_params.Optimizer: adamax
     outs:
     - path: confusion_matrix.png
-      md5: e9566f18d2c70568a0980f2394585290
-      size: 9745
+      md5: 75b8f262463ad119d5f85991144c9a96
+      size: 10248
     - path: evaluation/metrics.json
-      md5: e715001d89be7a11262ad3f6475807d9
+      md5: eb11585f3219f494a82126d974f74f9e
       size: 415
     - path: evaluation/plots
-      md5: b012c66ed10fcdc86ee950f8a8d4f7c2.dir
-      size: 671
+      md5: 6b3a180e676cc86cd4bd822e52f39564.dir
+      size: 1936
       nfiles: 9
     - path: model_checkpoint/
-      md5: 3ed5c04f06ac494687e3083a4e461f16.dir
+      md5: 8df8f4b1bd305a2597b0474064fdc436.dir
       size: 158106464
       nfiles: 1
