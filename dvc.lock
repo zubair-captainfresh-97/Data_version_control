@@ -35,8 +35,8 @@ stages:
       md5: d6cb8a1b8b32984dffa550f6174151b7
       size: 1437
     - path: notebooks/deeplabv3plus_squeeze_excitation.ipynb
-      md5: 64a464e80ea27ef9b0063f7abffd6eda
-      size: 23943
+      md5: e89147974f2b9b02b23ec227683108d0
+      size: 23961
     - path: tfrecords/
       md5: fe3e2fa86740249789e2e9d55d98909f.dir
       size: 7399210896
@@ -57,16 +57,19 @@ stages:
         model_params.Optimizer: adamax
     outs:
     - path: confusion_matrix.png
-      md5: 75b8f262463ad119d5f85991144c9a96
-      size: 10248
+      md5: e857a8ff857af7a1738a5b52c1202635
+      size: 10239
     - path: evaluation/metrics.json
-      md5: eb11585f3219f494a82126d974f74f9e
+      md5: c56b934880c95b648b90c722ae15244b
       size: 415
     - path: evaluation/plots
-      md5: 6b3a180e676cc86cd4bd822e52f39564.dir
-      size: 1936
+      md5: d3a6b4375e3a40072a5b3bb6e323e4d6.dir
+      size: 1933
       nfiles: 9
+    - path: evaluation/report.html
+      md5: 42b5b9f1c5bc84563bfe36314c9b4d02
+      size: 32907
     - path: model_checkpoint/
-      md5: 8df8f4b1bd305a2597b0474064fdc436.dir
+      md5: 6e75cd9cf071f5cdaf6b0b52b11605cc.dir
       size: 158106464
       nfiles: 1

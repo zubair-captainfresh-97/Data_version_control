@@ -26,10 +26,11 @@ stages:
     - model_params.Epochs
     outs:
     - 'model_checkpoint/'
-    # -  evaluation/report.html:
-        # cache: false
+    -  evaluation/report.html:
+        cache: false
     metrics:
-      - evaluation/metrics.json
+      - evaluation/metrics.json:
+          cache: false
     plots:
     - evaluation/plots
     - confusion_matrix.png:
