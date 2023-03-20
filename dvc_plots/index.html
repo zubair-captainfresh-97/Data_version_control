@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>DVC Plot</title>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.18.2"></script>
+    
+    <style>
+        table {
+            border-spacing: 15px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id = "evaluation_plots_metrics_eval_loss_tsv">
+        <script type = "text/javascript">
+            var spec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "values": [
+    {
+        "loss": "0.4071148931980133",
+        "rev": "workspace",
+        "step": 0
+    },
+    {
+        "loss": "0.4154505431652069",
+        "rev": "workspace",
+        "step": 1
+    },
+    {
+        "loss": "0.25922563672065735",
+        "rev": "workspace",
+        "step": 2
+    },
+    {
+        "loss": "0.13085263967514038",
+        "rev": "workspace",
+        "step": 3
+    },
+    {
+        "loss": "0.07187742739915848",
+        "rev": "workspace",
+        "step": 4
+    },
+    {
+        "loss": "0.06860023736953735",
+        "rev": "workspace",
+        "step": 5
+    },
+    {
+        "loss": "0.06510365009307861",
+        "rev": "workspace",
+        "step": 6
+    },
+    {
+        "loss": "0.06702664494514465",
+        "rev": "workspace",
+        "step": 7
+    },
+    {
+        "loss": "0.06362517923116684",
+        "rev": "workspace",
+        "step": 8
+    },
+    {
+        "loss": "0.06155262514948845",
+        "rev": "workspace",
+        "step": 9
+    }
+]
+    },
+    "title": "evaluation/plots/metrics/eval/loss.tsv",
+    "width": 300,
+    "height": 300,
+    "params": [
+        {
+            "name": "smooth",
+            "value": 0.001,
+            "bind": {
+                "input": "range",
+                "min": 0.001,
+                "max": 1,
+                "step": 0.001
+            }
+        }
+    ],
+    "layer": [
+        {
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "loss",
+                    "type": "quantitative",
+                    "title": "loss",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            },
+            "transform": [
+                {
+                    "loess": "loss",
+                    "on": "step",
+                    "groupby": [
+                        "rev",
+                        "filename",
+                        "field",
+                        "filename::field"
+                    ],
+                    "bandwidth": {
+                        "signal": "smooth"
+                    }
+                }
+            ]
+        },
+        {
+            "mark": {
+                "type": "point",
+                "tooltip": {
+                    "content": "data"
+                }
+            },
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "loss",
+                    "type": "quantitative",
+                    "title": "loss",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            }
+        }
+    ]
+}
+;
+            vegaEmbed('#evaluation_plots_metrics_eval_loss_tsv', spec);
+        </script>
+    </div>
+    
+
+    <div id = "evaluation_plots_metrics_eval_one_hot_io_u_tsv">
+        <script type = "text/javascript">
+            var spec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "values": [
+    {
+        "one_hot_io_u": "0.3034496307373047",
+        "rev": "workspace",
+        "step": 0
+    },
+    {
+        "one_hot_io_u": "0.3430063724517822",
+        "rev": "workspace",
+        "step": 1
+    },
+    {
+        "one_hot_io_u": "0.4879409968852997",
+        "rev": "workspace",
+        "step": 2
+    },
+    {
+        "one_hot_io_u": "0.7182561755180359",
+        "rev": "workspace",
+        "step": 3
+    },
+    {
+        "one_hot_io_u": "0.8316341638565063",
+        "rev": "workspace",
+        "step": 4
+    },
+    {
+        "one_hot_io_u": "0.8385190367698669",
+        "rev": "workspace",
+        "step": 5
+    },
+    {
+        "one_hot_io_u": "0.8454785346984863",
+        "rev": "workspace",
+        "step": 6
+    },
+    {
+        "one_hot_io_u": "0.8397344350814819",
+        "rev": "workspace",
+        "step": 7
+    },
+    {
+        "one_hot_io_u": "0.8493472933769226",
+        "rev": "workspace",
+        "step": 8
+    },
+    {
+        "one_hot_io_u": "0.851716160774231",
+        "rev": "workspace",
+        "step": 9
+    }
+]
+    },
+    "title": "evaluation/plots/metrics/eval/one_hot_io_u.tsv",
+    "width": 300,
+    "height": 300,
+    "params": [
+        {
+            "name": "smooth",
+            "value": 0.001,
+            "bind": {
+                "input": "range",
+                "min": 0.001,
+                "max": 1,
+                "step": 0.001
+            }
+        }
+    ],
+    "layer": [
+        {
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "one_hot_io_u",
+                    "type": "quantitative",
+                    "title": "one_hot_io_u",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            },
+            "transform": [
+                {
+                    "loess": "one_hot_io_u",
+                    "on": "step",
+                    "groupby": [
+                        "rev",
+                        "filename",
+                        "field",
+                        "filename::field"
+                    ],
+                    "bandwidth": {
+                        "signal": "smooth"
+                    }
+                }
+            ]
+        },
+        {
+            "mark": {
+                "type": "point",
+                "tooltip": {
+                    "content": "data"
+                }
+            },
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "one_hot_io_u",
+                    "type": "quantitative",
+                    "title": "one_hot_io_u",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            }
+        }
+    ]
+}
+;
+            vegaEmbed('#evaluation_plots_metrics_eval_one_hot_io_u_tsv', spec);
+        </script>
+    </div>
+    
+
+    <div id = "evaluation_plots_metrics_eval_precision_tsv">
+        <script type = "text/javascript">
+            var spec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "values": [
+    {
+        "precision": "0.5833042860031128",
+        "rev": "workspace",
+        "step": 0
+    },
+    {
+        "precision": "0.518846869468689",
+        "rev": "workspace",
+        "step": 1
+    },
+    {
+        "precision": "0.6924495100975037",
+        "rev": "workspace",
+        "step": 2
+    },
+    {
+        "precision": "0.8369879722595215",
+        "rev": "workspace",
+        "step": 3
+    },
+    {
+        "precision": "0.9104757905006409",
+        "rev": "workspace",
+        "step": 4
+    },
+    {
+        "precision": "0.9141490459442139",
+        "rev": "workspace",
+        "step": 5
+    },
+    {
+        "precision": "0.9185432195663452",
+        "rev": "workspace",
+        "step": 6
+    },
+    {
+        "precision": "0.9154952764511108",
+        "rev": "workspace",
+        "step": 7
+    },
+    {
+        "precision": "0.9203530550003052",
+        "rev": "workspace",
+        "step": 8
+    },
+    {
+        "precision": "0.9226008653640747",
+        "rev": "workspace",
+        "step": 9
+    }
+]
+    },
+    "title": "evaluation/plots/metrics/eval/precision.tsv",
+    "width": 300,
+    "height": 300,
+    "params": [
+        {
+            "name": "smooth",
+            "value": 0.001,
+            "bind": {
+                "input": "range",
+                "min": 0.001,
+                "max": 1,
+                "step": 0.001
+            }
+        }
+    ],
+    "layer": [
+        {
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "precision",
+                    "type": "quantitative",
+                    "title": "precision",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            },
+            "transform": [
+                {
+                    "loess": "precision",
+                    "on": "step",
+                    "groupby": [
+                        "rev",
+                        "filename",
+                        "field",
+                        "filename::field"
+                    ],
+                    "bandwidth": {
+                        "signal": "smooth"
+                    }
+                }
+            ]
+        },
+        {
+            "mark": {
+                "type": "point",
+                "tooltip": {
+                    "content": "data"
+                }
+            },
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "precision",
+                    "type": "quantitative",
+                    "title": "precision",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            }
+        }
+    ]
+}
+;
+            vegaEmbed('#evaluation_plots_metrics_eval_precision_tsv', spec);
+        </script>
+    </div>
+    
+
+    <div id = "evaluation_plots_metrics_eval_recall_tsv">
+        <script type = "text/javascript">
+            var spec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "values": [
+    {
+        "recall": "0.5833042860031128",
+        "rev": "workspace",
+        "step": 0
+    },
+    {
+        "recall": "0.518846869468689",
+        "rev": "workspace",
+        "step": 1
+    },
+    {
+        "recall": "0.6924495100975037",
+        "rev": "workspace",
+        "step": 2
+    },
+    {
+        "recall": "0.8369879722595215",
+        "rev": "workspace",
+        "step": 3
+    },
+    {
+        "recall": "0.9104757905006409",
+        "rev": "workspace",
+        "step": 4
+    },
+    {
+        "recall": "0.9141490459442139",
+        "rev": "workspace",
+        "step": 5
+    },
+    {
+        "recall": "0.9185431599617004",
+        "rev": "workspace",
+        "step": 6
+    },
+    {
+        "recall": "0.9154952764511108",
+        "rev": "workspace",
+        "step": 7
+    },
+    {
+        "recall": "0.9203530550003052",
+        "rev": "workspace",
+        "step": 8
+    },
+    {
+        "recall": "0.9226008653640747",
+        "rev": "workspace",
+        "step": 9
+    }
+]
+    },
+    "title": "evaluation/plots/metrics/eval/recall.tsv",
+    "width": 300,
+    "height": 300,
+    "params": [
+        {
+            "name": "smooth",
+            "value": 0.001,
+            "bind": {
+                "input": "range",
+                "min": 0.001,
+                "max": 1,
+                "step": 0.001
+            }
+        }
+    ],
+    "layer": [
+        {
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "recall",
+                    "type": "quantitative",
+                    "title": "recall",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            },
+            "transform": [
+                {
+                    "loess": "recall",
+                    "on": "step",
+                    "groupby": [
+                        "rev",
+                        "filename",
+                        "field",
+                        "filename::field"
+                    ],
+                    "bandwidth": {
+                        "signal": "smooth"
+                    }
+                }
+            ]
+        },
+        {
+            "mark": {
+                "type": "point",
+                "tooltip": {
+                    "content": "data"
+                }
+            },
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "recall",
+                    "type": "quantitative",
+                    "title": "recall",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            }
+        }
+    ]
+}
+;
+            vegaEmbed('#evaluation_plots_metrics_eval_recall_tsv', spec);
+        </script>
+    </div>
+    
+
+    <div id = "evaluation_plots_metrics_train_loss_tsv">
+        <script type = "text/javascript">
+            var spec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "values": [
+    {
+        "loss": "0.13907617330551147",
+        "rev": "workspace",
+        "step": 0
+    },
+    {
+        "loss": "0.0993696078658104",
+        "rev": "workspace",
+        "step": 1
+    },
+    {
+        "loss": "0.08840243518352509",
+        "rev": "workspace",
+        "step": 2
+    },
+    {
+        "loss": "0.07989402860403061",
+        "rev": "workspace",
+        "step": 3
+    },
+    {
+        "loss": "0.073924720287323",
+        "rev": "workspace",
+        "step": 4
+    },
+    {
+        "loss": "0.06916358321905136",
+        "rev": "workspace",
+        "step": 5
+    },
+    {
+        "loss": "0.06309434026479721",
+        "rev": "workspace",
+        "step": 6
+    },
+    {
+        "loss": "0.06033843755722046",
+        "rev": "workspace",
+        "step": 7
+    },
+    {
+        "loss": "0.05648649111390114",
+        "rev": "workspace",
+        "step": 8
+    },
+    {
+        "loss": "0.055041082203388214",
+        "rev": "workspace",
+        "step": 9
+    }
+]
+    },
+    "title": "evaluation/plots/metrics/train/loss.tsv",
+    "width": 300,
+    "height": 300,
+    "params": [
+        {
+            "name": "smooth",
+            "value": 0.001,
+            "bind": {
+                "input": "range",
+                "min": 0.001,
+                "max": 1,
+                "step": 0.001
+            }
+        }
+    ],
+    "layer": [
+        {
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "loss",
+                    "type": "quantitative",
+                    "title": "loss",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            },
+            "transform": [
+                {
+                    "loess": "loss",
+                    "on": "step",
+                    "groupby": [
+                        "rev",
+                        "filename",
+                        "field",
+                        "filename::field"
+                    ],
+                    "bandwidth": {
+                        "signal": "smooth"
+                    }
+                }
+            ]
+        },
+        {
+            "mark": {
+                "type": "point",
+                "tooltip": {
+                    "content": "data"
+                }
+            },
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "loss",
+                    "type": "quantitative",
+                    "title": "loss",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            }
+        }
+    ]
+}
+;
+            vegaEmbed('#evaluation_plots_metrics_train_loss_tsv', spec);
+        </script>
+    </div>
+    
+
+    <div id = "evaluation_plots_metrics_train_lr_tsv">
+        <script type = "text/javascript">
+            var spec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "values": [
+    {
+        "lr": "1e-04",
+        "rev": "workspace",
+        "step": 0
+    },
+    {
+        "lr": "9.9999e-05",
+        "rev": "workspace",
+        "step": 1
+    },
+    {
+        "lr": "9.9998e-05",
+        "rev": "workspace",
+        "step": 2
+    },
+    {
+        "lr": "9.9997e-05",
+        "rev": "workspace",
+        "step": 3
+    },
+    {
+        "lr": "9.9996e-05",
+        "rev": "workspace",
+        "step": 4
+    },
+    {
+        "lr": "9.9995e-05",
+        "rev": "workspace",
+        "step": 5
+    },
+    {
+        "lr": "9.9994e-05",
+        "rev": "workspace",
+        "step": 6
+    },
+    {
+        "lr": "9.9993e-05",
+        "rev": "workspace",
+        "step": 7
+    },
+    {
+        "lr": "9.9992e-05",
+        "rev": "workspace",
+        "step": 8
+    },
+    {
+        "lr": "9.9991e-05",
+        "rev": "workspace",
+        "step": 9
+    }
+]
+    },
+    "title": "evaluation/plots/metrics/train/lr.tsv",
+    "width": 300,
+    "height": 300,
+    "params": [
+        {
+            "name": "smooth",
+            "value": 0.001,
+            "bind": {
+                "input": "range",
+                "min": 0.001,
+                "max": 1,
+                "step": 0.001
+            }
+        }
+    ],
+    "layer": [
+        {
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "lr",
+                    "type": "quantitative",
+                    "title": "lr",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            },
+            "transform": [
+                {
+                    "loess": "lr",
+                    "on": "step",
+                    "groupby": [
+                        "rev",
+                        "filename",
+                        "field",
+                        "filename::field"
+                    ],
+                    "bandwidth": {
+                        "signal": "smooth"
+                    }
+                }
+            ]
+        },
+        {
+            "mark": {
+                "type": "point",
+                "tooltip": {
+                    "content": "data"
+                }
+            },
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "lr",
+                    "type": "quantitative",
+                    "title": "lr",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            }
+        }
+    ]
+}
+;
+            vegaEmbed('#evaluation_plots_metrics_train_lr_tsv', spec);
+        </script>
+    </div>
+    
+
+    <div id = "evaluation_plots_metrics_train_one_hot_io_u_tsv">
+        <script type = "text/javascript">
+            var spec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "values": [
+    {
+        "one_hot_io_u": "0.7019504308700562",
+        "rev": "workspace",
+        "step": 0
+    },
+    {
+        "one_hot_io_u": "0.7742647528648376",
+        "rev": "workspace",
+        "step": 1
+    },
+    {
+        "one_hot_io_u": "0.7966426610946655",
+        "rev": "workspace",
+        "step": 2
+    },
+    {
+        "one_hot_io_u": "0.8141368627548218",
+        "rev": "workspace",
+        "step": 3
+    },
+    {
+        "one_hot_io_u": "0.8257969617843628",
+        "rev": "workspace",
+        "step": 4
+    },
+    {
+        "one_hot_io_u": "0.837036669254303",
+        "rev": "workspace",
+        "step": 5
+    },
+    {
+        "one_hot_io_u": "0.8490321636199951",
+        "rev": "workspace",
+        "step": 6
+    },
+    {
+        "one_hot_io_u": "0.8550359010696411",
+        "rev": "workspace",
+        "step": 7
+    },
+    {
+        "one_hot_io_u": "0.8637775182723999",
+        "rev": "workspace",
+        "step": 8
+    },
+    {
+        "one_hot_io_u": "0.8664660453796387",
+        "rev": "workspace",
+        "step": 9
+    }
+]
+    },
+    "title": "evaluation/plots/metrics/train/one_hot_io_u.tsv",
+    "width": 300,
+    "height": 300,
+    "params": [
+        {
+            "name": "smooth",
+            "value": 0.001,
+            "bind": {
+                "input": "range",
+                "min": 0.001,
+                "max": 1,
+                "step": 0.001
+            }
+        }
+    ],
+    "layer": [
+        {
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "one_hot_io_u",
+                    "type": "quantitative",
+                    "title": "one_hot_io_u",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            },
+            "transform": [
+                {
+                    "loess": "one_hot_io_u",
+                    "on": "step",
+                    "groupby": [
+                        "rev",
+                        "filename",
+                        "field",
+                        "filename::field"
+                    ],
+                    "bandwidth": {
+                        "signal": "smooth"
+                    }
+                }
+            ]
+        },
+        {
+            "mark": {
+                "type": "point",
+                "tooltip": {
+                    "content": "data"
+                }
+            },
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "one_hot_io_u",
+                    "type": "quantitative",
+                    "title": "one_hot_io_u",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            }
+        }
+    ]
+}
+;
+            vegaEmbed('#evaluation_plots_metrics_train_one_hot_io_u_tsv', spec);
+        </script>
+    </div>
+    
+
+    <div id = "evaluation_plots_metrics_train_precision_tsv">
+        <script type = "text/javascript">
+            var spec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "values": [
+    {
+        "precision": "0.8312841057777405",
+        "rev": "workspace",
+        "step": 0
+    },
+    {
+        "precision": "0.8775911927223206",
+        "rev": "workspace",
+        "step": 1
+    },
+    {
+        "precision": "0.8909353017807007",
+        "rev": "workspace",
+        "step": 2
+    },
+    {
+        "precision": "0.9013285636901855",
+        "rev": "workspace",
+        "step": 3
+    },
+    {
+        "precision": "0.9080148339271545",
+        "rev": "workspace",
+        "step": 4
+    },
+    {
+        "precision": "0.9141440391540527",
+        "rev": "workspace",
+        "step": 5
+    },
+    {
+        "precision": "0.9212621450424194",
+        "rev": "workspace",
+        "step": 6
+    },
+    {
+        "precision": "0.9245519042015076",
+        "rev": "workspace",
+        "step": 7
+    },
+    {
+        "precision": "0.929206907749176",
+        "rev": "workspace",
+        "step": 8
+    },
+    {
+        "precision": "0.9306918978691101",
+        "rev": "workspace",
+        "step": 9
+    }
+]
+    },
+    "title": "evaluation/plots/metrics/train/precision.tsv",
+    "width": 300,
+    "height": 300,
+    "params": [
+        {
+            "name": "smooth",
+            "value": 0.001,
+            "bind": {
+                "input": "range",
+                "min": 0.001,
+                "max": 1,
+                "step": 0.001
+            }
+        }
+    ],
+    "layer": [
+        {
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "precision",
+                    "type": "quantitative",
+                    "title": "precision",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            },
+            "transform": [
+                {
+                    "loess": "precision",
+                    "on": "step",
+                    "groupby": [
+                        "rev",
+                        "filename",
+                        "field",
+                        "filename::field"
+                    ],
+                    "bandwidth": {
+                        "signal": "smooth"
+                    }
+                }
+            ]
+        },
+        {
+            "mark": {
+                "type": "point",
+                "tooltip": {
+                    "content": "data"
+                }
+            },
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "precision",
+                    "type": "quantitative",
+                    "title": "precision",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            }
+        }
+    ]
+}
+;
+            vegaEmbed('#evaluation_plots_metrics_train_precision_tsv', spec);
+        </script>
+    </div>
+    
+
+    <div id = "evaluation_plots_metrics_train_recall_tsv">
+        <script type = "text/javascript">
+            var spec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "values": [
+    {
+        "recall": "0.8312841057777405",
+        "rev": "workspace",
+        "step": 0
+    },
+    {
+        "recall": "0.8775911927223206",
+        "rev": "workspace",
+        "step": 1
+    },
+    {
+        "recall": "0.8909351825714111",
+        "rev": "workspace",
+        "step": 2
+    },
+    {
+        "recall": "0.9013285636901855",
+        "rev": "workspace",
+        "step": 3
+    },
+    {
+        "recall": "0.9080148339271545",
+        "rev": "workspace",
+        "step": 4
+    },
+    {
+        "recall": "0.9141440391540527",
+        "rev": "workspace",
+        "step": 5
+    },
+    {
+        "recall": "0.9212621450424194",
+        "rev": "workspace",
+        "step": 6
+    },
+    {
+        "recall": "0.9245519042015076",
+        "rev": "workspace",
+        "step": 7
+    },
+    {
+        "recall": "0.929206907749176",
+        "rev": "workspace",
+        "step": 8
+    },
+    {
+        "recall": "0.9306918978691101",
+        "rev": "workspace",
+        "step": 9
+    }
+]
+    },
+    "title": "evaluation/plots/metrics/train/recall.tsv",
+    "width": 300,
+    "height": 300,
+    "params": [
+        {
+            "name": "smooth",
+            "value": 0.001,
+            "bind": {
+                "input": "range",
+                "min": 0.001,
+                "max": 1,
+                "step": 0.001
+            }
+        }
+    ],
+    "layer": [
+        {
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "recall",
+                    "type": "quantitative",
+                    "title": "recall",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            },
+            "transform": [
+                {
+                    "loess": "recall",
+                    "on": "step",
+                    "groupby": [
+                        "rev",
+                        "filename",
+                        "field",
+                        "filename::field"
+                    ],
+                    "bandwidth": {
+                        "signal": "smooth"
+                    }
+                }
+            ]
+        },
+        {
+            "mark": {
+                "type": "point",
+                "tooltip": {
+                    "content": "data"
+                }
+            },
+            "encoding": {
+                "x": {
+                    "field": "step",
+                    "type": "quantitative",
+                    "title": "step"
+                },
+                "y": {
+                    "field": "recall",
+                    "type": "quantitative",
+                    "title": "recall",
+                    "scale": {
+                        "zero": false
+                    }
+                },
+                "color": {
+                    "field": "rev",
+                    "type": "nominal"
+                }
+            }
+        }
+    ]
+}
+;
+            vegaEmbed('#evaluation_plots_metrics_train_recall_tsv', spec);
+        </script>
+    </div>
+    
+</body>
+</html>
